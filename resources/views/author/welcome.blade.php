@@ -13,7 +13,20 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    <table class="table table-bordered" style="text-align:center">
+                <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                </tr>
+                @foreach ($users as $user)
+                <tr>
+      <td>{{$user->id}}  </td>
+      <td>{{$user->name}} </td>
+      <td>{{$user->email}} </td>
+      </tr>
+    @endforeach
+                </table>
                     You are logged in!
                 </div>
             </div>

@@ -18,14 +18,17 @@
                 <th>1</th>
                 <th>2</th>
                 <th>3</th>
+                <th>4</th>
                 </tr>
                 @foreach ($users as $user)
                 <tr>
-      <td>{{$user->id}}  </td>
-      <td>{{$user->name}} </td>
-      <td>{{$user->created_at}} </td>
+      <td>{{$user->a}}  </td>
+      <td>{{$user->b}}  </td>
+      <td>{{$user->c}}  </td>
+      <td>{{$user->d}}  </td>  
       </tr>
     @endforeach
+
                 </table>
 
 

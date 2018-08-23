@@ -26,3 +26,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/index', function () {
     return view('/home/index');
 });
+
+/* Route::get('auth.register','Auth\RegisterController@showRegistrationForm'); */
+

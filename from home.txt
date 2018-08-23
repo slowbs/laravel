@@ -1,0 +1,94 @@
+///link
+//  http://www.saimok.com/2015/06/07/laravel-5-%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B8%87%E0%B8%B2%E0%B8%99-model/
+
+
+
+php artisan make:model name
+
+
+in Model
+<?php
+
+
+namespace App;
+
+
+
+use Illuminate\Database\Eloquent\Model;
+
+
+
+class Slowbs extends Model
+
+{
+    
+protected $table = 'users';
+
+}
+
+
+Create Controller  // this is for pass value
+<?php
+
+
+namespace App\Http\Controllers;
+
+
+
+use Illuminate\Http\Request;
+
+use App\Profile;
+
+   //name of Model
+class SlowController extends Controller
+   //Class change from ControllerName
+{
+    
+public function index()
+    
+{
+        
+$profile = Profile::get();
+        
+return view('test',compact('profile'));
+
+}
+
+}
+
+Create Controller  // this is for check-model
+<?php
+
+
+namespace App\Http\Controllers;
+
+
+
+use Illuminate\Http\Request;
+
+use App\Profile;
+
+   //name of Model
+class SlowController extends Controller
+   //Class change from ControllerName
+{
+    
+public function index()
+    
+{
+        
+$profile = Profile::get();
+        
+return $profile ? 'Model Profile Connect Yes!' : 'Error! Model Profile Connect False!!!';
+}
+
+}
+
+//route for check-model
+Route::get('check-model','TestController@index');   // Change Controllername
+
+
+//echo foreach select in view
+@foreach ($profile as $object)    //change variablename
+    {{ $object->email }}	  //change column name
+@endforeach

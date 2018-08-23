@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\DB;
+use App\Role;
 
 class RegisterController extends Controller
 {
@@ -69,8 +71,12 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
-            'role_id' => 1,
-
+            'role_id' => $data['role'],
         ]);
     }
+    public function showRegistrationForm() {
+    $role = Role::get();
+    return view('auth.register',compact('role'));
+    }
+    
 }

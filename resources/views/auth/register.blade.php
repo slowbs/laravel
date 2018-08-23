@@ -40,6 +40,24 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('สถานะ') }}</label>
+
+                            <div class="col-md-6">
+                            <select name="role" class="form-control" >
+@foreach($role as $object)
+<option value="{{ $object->id }} "> {{ $object->name }} </option>
+@endforeach
+</select>
+
+                                @if ($errors->has('username'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
@@ -82,6 +100,10 @@
                                 </button>
                             </div>
                         </div>
+                        <!-- @foreach ($role as $object)
+                        {{ $object->id }}
+                        {{ $object->name }}
+                        @endforeach -->
                     </form>
                 </div>
             </div>
